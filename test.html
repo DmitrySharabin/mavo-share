@@ -15,6 +15,32 @@
 	<body>
 		<h1>Share tests</h1>
 
+		<section mv-app>
+			<h2>Basic</h2>
+
+			<form mv-action="share(text, url, title)">
+				<label>Text: <input property="text" placeholder="e.g., Mavo is awesome" /></label>
+				<label>URL: <input property="url" placeholder="e.g., https://mavo.io" /></label>
+				<label>Title: <input property="title" placeholder="e.g., Mavo website" /></label>
+				<input type="submit" value="Share" />
+			</form>
+		</section>
+
+		<section>
+			<h2>With Expressions</h2>
+
+			<form mv-app>
+				<button type="button" mv-action="share(join(list(1, 2, 3), '\n'))">share(text)</button>
+				<button type="button" mv-action="share(join(list(1, 2, 3), '\n'), 'https://mavo.io')">share(text, url)</button>
+				<button type="button" mv-action="share(join(list(1, 2, 3), '\n'), 'List of numbers')">
+					share(text, title)
+				</button>
+				<button type="button" mv-action="share(join(list(1, 2, 3), '\n'), 'https://mavo.io', 'Mavo Site')">
+					share(text, url, title)
+				</button>
+			</form>
+		</section>
+
 		<script src="mavo-share.js"></script>
 		<script src="https://test.mavo.io/test.js"></script>
 	</body>
