@@ -19,6 +19,7 @@
 		}
 
 		// What if text is a string representation of a URL?
+		// If we have share(url1, url2[, title]), url1 wins
 		try {
 			const tempURL = new URL(text);
 
@@ -27,8 +28,7 @@
 					// Case: share(url, text, title)
 					text = url;
 				} else {
-					// Case: share(url[, title])
-					// Case: share(url1, url2) — url1 wins
+					// Case: share(url, title)
 					[title, text] = [url];
 				}
 			} else {
