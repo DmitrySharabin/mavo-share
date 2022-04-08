@@ -22,12 +22,21 @@
 		try {
 			const tempURL = new URL(text);
 
-			// Case: share(url[, title])
-			if (url && !title) {
-				title = url;
+			if (url) {
+				if (title) {
+					// Case: share(url, text, title)
+					text = url;
+				} else {
+					// Case: share(url[, title])
+					// Case: share(url1, url2) — url1 wins
+					[title, text] = [url];
+				}
+			} else {
+				// Case: share(url)
+				text = undefined;
 			}
 
-			[url, text] = [tempURL.href];
+			url = tempURL.href;
 		} catch {}
 
 		if (url) {
@@ -44,8 +53,8 @@
 
 		const data = {
 			text,
-			url,
-			title
+			url: url || undefined, // Exclude url === ""
+			title: title || undefined // Exclude title === ""
 		};
 
 		try {
