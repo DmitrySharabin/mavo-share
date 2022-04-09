@@ -3,7 +3,8 @@
 
 	Mavo.Actions.Functions.share = async function (text, url, title) {
 		if (!("share" in navigator)) {
-			Mavo.warn("Your browser doesn't support sharing.");
+			// Why Mavo.all[0]? error() is an instance method, so we need an app to invoke it.
+			Mavo.all[0].error("Your browser doesn't support sharing.");
 			return;
 		}
 
