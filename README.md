@@ -34,10 +34,10 @@ Either `text` or `url` is mandatory. All the other parameters are optional.
 
 `share(text, url, title)`
 
-### Demo 1
+## Demo 1
 
 ```markup
-<div mv-app>
+<div mv-app mv-plugins="share">
   <button mv-action="share('Mavo is awesome! 😍')">
     share(text)
   </button>
@@ -50,36 +50,73 @@ Either `text` or `url` is mandatory. All the other parameters are optional.
     share(url, title)
   </button>
 </div>
+
+<style>
+  button {
+    padding: 0.5em;
+    font: inherit;
+  }
+</style>
 ```
+
+***
 
 Like all the other actions, the `share()` function knows how to handle [properties](https://mavo.io/docs/properties) and [expressions](https://mavo.io/docs/expressions).
 
-### Demo 2
+## Demo 2
 
 ```markup
-<div mv-app>
+<div mv-app mv-plugins="share">
   <p>What would you like to share?</p>
 
   <form mv-action="share(text, url, title)">
-  <label>
-    Text: <input property="text" placeholder="e.g., Mavo is awesome!" />
-  </label>
     <label>
-    URL: <input property="url" placeholder="e.g., https://mavo.io" />
-  </label>
-  <label>
-    Title: <input property="title" placeholder="e.g., Mavo website" />
-  </label>
-  <input type="submit" value="Share" />
+      Text: <input property="text" placeholder="e.g., Mavo is awesome!" />
+    </label>
+    <label>
+      URL: <input property="url" placeholder="e.g., https://mavo.io" />
+    </label>
+    <label>
+      Title: <input property="title" placeholder="e.g., Mavo website" />
+    </label>
+
+    <input type="submit" value="Share" />
   </form>
 </div>
+<style>
+  label {
+    display: grid;
+    gap: 0.3em;
+    grid-template-columns: 6ch 1fr;
+    align-items: center;
+  }
+
+  input {
+    padding: 0.3em;
+    font: inherit;
+  }
+
+  [type=submit] {
+    margin-block-start: 0.5em;
+    padding: 0.5em;
+
+    font-size: 110%;
+  }
+</style>
 ```
 
-### Demo 3
+## Demo 3
 
 ```markup
-<div mv-app>
+<div mv-app mv-plugins="share">
   <!-- Share the URL of the current page -->
   <button mv-action="share(url())">Share</button>
 </div>
+
+<style>
+  button {
+    padding: 0.5em;
+    font: inherit;
+  }
+</style>
 ```
