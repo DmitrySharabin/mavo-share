@@ -34,46 +34,52 @@ Either `text` or `url` is mandatory. All the other parameters are optional.
 
 `share(text, url, title)`
 
-##### Demo 1
+### Demo 1
 
 ```markup
-<button mv-action="share('Mavo is awesome! 😍')">
-  share(text)
-</button>
+<div mv-app>
+  <button mv-action="share('Mavo is awesome! 😍')">
+    share(text)
+  </button>
 
-<button mv-action="share('https://mavo.io')">
-  share(url)
-</button>
+  <button mv-action="share('https://mavo.io')">
+    share(url)
+  </button>
 
-<button mv-action="share('https://mavo.io', 'Get to know Mavo')">
-  share(url, title)
-</button>
+  <button mv-action="share('https://mavo.io', 'Get to know Mavo')">
+    share(url, title)
+  </button>
+</div>
 ```
 
 Like all the other actions, the `share()` function knows how to handle [properties](https://mavo.io/docs/properties) and [expressions](https://mavo.io/docs/expressions).
 
-##### Demo 2
+### Demo 2
 
 ```markup
-<p>What would you like to share?</p>
+<div mv-app>
+  <p>What would you like to share?</p>
 
-<form mv-action="share(text, url, title)">
- <label>
-  Text: <input property="text" placeholder="e.g., Mavo is awesome!" />
- </label>
+  <form mv-action="share(text, url, title)">
   <label>
-  URL: <input property="url" placeholder="e.g., https://mavo.io" />
- </label>
- <label>
-  Title: <input property="title" placeholder="e.g., Mavo website" />
- </label>
- <input type="submit" value="Share" />
-</form>
+    Text: <input property="text" placeholder="e.g., Mavo is awesome!" />
+  </label>
+    <label>
+    URL: <input property="url" placeholder="e.g., https://mavo.io" />
+  </label>
+  <label>
+    Title: <input property="title" placeholder="e.g., Mavo website" />
+  </label>
+  <input type="submit" value="Share" />
+  </form>
+</div>
 ```
 
-##### Demo 3
+### Demo 3
 
 ```markup
-<!-- Share the URL of the current page -->
-<button mv-action="share(url())">Share</button>
+<div mv-app>
+  <!-- Share the URL of the current page -->
+  <button mv-action="share(url())">Share</button>
+</div>
 ```
