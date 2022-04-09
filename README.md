@@ -34,7 +34,7 @@ Either `text` or `url` is mandatory. All the other parameters are optional.
 
 `share(text, url, title)`
 
-### Demo 1
+##### Demo 1
 
 ```markup
 <button mv-action="share('Mavo is awesome! 😍')">
@@ -52,7 +52,7 @@ Either `text` or `url` is mandatory. All the other parameters are optional.
 
 Like all the other actions, the `share()` function knows how to handle [properties](https://mavo.io/docs/properties) and [expressions](https://mavo.io/docs/expressions).
 
-### Demo 2
+##### Demo 2
 
 ```markup
 <p>What would you like to share?</p>
@@ -71,7 +71,7 @@ Like all the other actions, the `share()` function knows how to handle [properti
 </form>
 ```
 
-### Demo 3
+##### Demo 3
 
 ```markup
 <!-- Share the URL of the current page -->
