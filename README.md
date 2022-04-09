@@ -91,6 +91,10 @@ Like all the other actions, the `share()` function knows how to handle [properti
     align-items: center;
   }
 
+  label + label {
+    margin-block-start: 0.3em;
+  }
+
   input {
     padding: 0.3em;
     font: inherit;
