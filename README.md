@@ -103,8 +103,6 @@ Like all the other actions, the `share()` function knows how to handle [properti
   [type=submit] {
     margin-block-start: 0.5em;
     padding: 0.5em;
-
-    font-size: 110%;
   }
 </style>
 ```
