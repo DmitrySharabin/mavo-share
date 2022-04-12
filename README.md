@@ -84,15 +84,15 @@ Like all the other actions, the `share()` function knows how to handle [properti
   </form>
 </div>
 <style>
-  label {
+  form {
     display: grid;
     gap: 0.3em;
-    grid-template-columns: 6ch 1fr;
+    grid-template-columns: auto auto;
     align-items: center;
   }
 
-  label + label {
-    margin-block-start: 0.3em;
+  label {
+    display: contents;
   }
 
   input {
