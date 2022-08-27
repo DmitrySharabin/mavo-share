@@ -10,35 +10,43 @@ You can see this plugin in action in the [Mavordle](https://dmitrysharabin.githu
 
 The plugin extends [Mavo actions](https://mavo.io/docs/actions) with a new one—the `share()` function. It means you can use it inside the `mv-action` attribute.
 
-The `share()` function supports up to 3 parameters:
+The `share()` function supports up to 3 parameters (**in any order**):
 
 1. `text` — text being shared
 2. `url` — URL referring to a resource being shared
 3. `title` — title of the document being shared.
 
-Either `text` or `url` is mandatory. All the other parameters are optional.
+**Note:** To specify the value for the needed parameter, you should specify the _name_ of that parameter followed by a _colon_, and the _value_ of the parameter, like so: `parameter: value`.
 
-**Note:** Depending on the operating system and the users' browser, `title` may be ignored by the _target_ the user will pick in the share dialog.
+**Note:** Depending on the operating system and the user's browser, `title` may be ignored by the _target_ the user will pick in the share dialog.
 
 ### Summary
 
-`share(text)`
+`share(url: "URL_to_share")`
 
-`share(url)`
+`share(text: "Text_to_share")`
 
-`share(text, url)`
+`share(title: "Title_to_share")`
 
-`share(text, title)`
+`share(text: "Text_to_share", url: "URL_to_share")`
 
-`share(url, title)`
+`share(text: "Text_to_share", title: "Title_to_share")`
 
-`share(text, url, title)`
+`share(url: "URL_to_share", title: "Title_to_share")`
+
+`share(text: "Text_to_share", url: "URL_to_share", title: "Title_to_share")`
+
+`share("URL_to_share")` is equivalent to `share(url: "URL_to_share")`
+
+`share()` — share the URL and the title of the current page
+
+**Note:** The plugin supports _relative_ URLs. For example, if the URL of the current page is `https://mavo.io/demos`, `share("?login")` will share the following URL: `https://mavo.io/demos?login`.
 
 ## Demo 1
 
 ```markup
 <div mv-app mv-plugins="share">
-  <button mv-action="share('Mavo is awesome! 😍')">
+  <button mv-action="share(text: 'Mavo is awesome! 😍')">
     share(text)
   </button>
 
@@ -46,7 +54,7 @@ Either `text` or `url` is mandatory. All the other parameters are optional.
     share(url)
   </button>
 
-  <button mv-action="share('https://mavo.io', 'Get to know Mavo')">
+  <button mv-action="share(url: 'https://mavo.io', title: 'Get to know Mavo')">
     share(url, title)
   </button>
 </div>
@@ -69,7 +77,7 @@ Like all the other actions, the `share()` function knows how to handle [properti
 <div mv-app mv-plugins="share">
   <p>What would you like to share?</p>
 
-  <form mv-action="share(text, url, title)">
+  <form mv-action="share(text: text, url: url, title: title)">
     <label>
       Text: <input property="text" placeholder="e.g., Mavo is awesome!" />
     </label>
@@ -111,8 +119,8 @@ Like all the other actions, the `share()` function knows how to handle [properti
 
 ```markup
 <div mv-app mv-plugins="share">
-  <!-- Share the URL of the current page -->
-  <button mv-action="share(url())">Share</button>
+  <!-- Share the URL and the title of the current page -->
+  <button mv-action="share()">Share</button>
 </div>
 
 <style>
