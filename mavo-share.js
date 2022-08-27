@@ -19,6 +19,11 @@
 			sharedData.title = document.title;
 		}
 		else {
+			if (args.length === 1 && $.type(args[0]) === "string") {
+				// share("text") --> share(url: "text")
+				args[0] = { url: args[0] };
+			}
+
 			sharedData = Object.assign({}, ...args.map(Mavo.value));
 
 			if (sharedData.url) {
