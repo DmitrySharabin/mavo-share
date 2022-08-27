@@ -114,19 +114,3 @@ Like all the other actions, the `share()` function knows how to handle [properti
   }
 </style>
 ```
-
-## Demo 3
-
-```markup
-<div mv-app mv-plugins="share">
-  <!-- Share the URL and the title of the current page -->
-  <button mv-action="share()">Share</button>
-</div>
-
-<style>
-  button {
-    padding: 0.5em;
-    font: inherit;
-  }
-</style>
-```
