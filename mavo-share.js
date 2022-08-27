@@ -24,13 +24,26 @@
 				args[0] = { url: args[0] };
 			}
 
-			sharedData = Object.assign({}, ...args.map(Mavo.value));
+			args = args.map(Mavo.clone); // Drop proxies
+			sharedData = Object.assign({}, ...args);
+
+			const nothingToShare = ["url", "text", "title"].every(prop => !Boolean(sharedData[prop]));
+			if (nothingToShare) {
+				return;
+			}
 
 			if (sharedData.url) {
 				const url = new URL(sharedData.url, Mavo.base);
 				sharedData.url = url.href;
 			}
 		}
+
+		// Drop empty strings
+		sharedData = {
+			url: sharedData.url || undefined,
+			text: sharedData.text || undefined,
+			title: sharedData.title || undefined
+		};
 
 		try {
 			await navigator.share(sharedData);
