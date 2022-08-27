@@ -20,6 +20,11 @@
 		}
 		else {
 			sharedData = Object.assign({}, ...args.map(Mavo.value));
+
+			if (sharedData.url) {
+				const url = new URL(sharedData.url, Mavo.base);
+				sharedData.url = url.href;
+			}
 		}
 
 		try {
