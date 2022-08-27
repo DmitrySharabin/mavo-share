@@ -1,3 +1,9 @@
+/**
+ * The Share plugin for Mavo
+ * @author Dmitry Sharabin and contributors
+ * @version 0.2.0
+ */
+
 (function () {
 	Mavo.Plugins.register("share", {});
 
